@@ -12,23 +12,15 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SelectComponent from './SelectComponent';
+import { Button } from '@mui/material';
 
 
 let towers = ["А", "Б"];
-let levels = Array.from({length: 27}, (_, index) => index + 1);
-let rooms = Array.from({length: 10}, (_, index) => index + 1);
+let levels = Array.from({ length: 27 }, (_, index) => index + 1);
+let rooms = Array.from({ length: 10 }, (_, index) => index + 1);
 let timeIntervals = ["12:00 - 13:00", "13:00 - 14:00"];
 
 function App() {
-
-  // function getToodayDateString() {
-  //   let objectDate = new Date();
-  //   let day = objectDate.getDate();
-  //   let month = objectDate.getMonth() + 1;
-  //   let year = objectDate.getFullYear();
-  //   return year + "-" + month + "-" + day;
-  // }
-  // const fieldsRight = useContext(FieldsRightContext);
 
   let [fields, setFields] = useState({
     tower: null,
@@ -36,7 +28,6 @@ function App() {
     room: null,
     date: null,
     interval: null,
-    // text: null,
   });
   const [text, setText] = useState('');
   const [succes, setSucces] = useState(false);
@@ -61,7 +52,7 @@ function App() {
 
     setSucces(true)
   }
-  debugger
+
   return (
     <div className="container">
       <h1 className="title">Забронируйте переговорную</h1>
@@ -88,13 +79,13 @@ function App() {
                 optionList={rooms}
                 validateMessage="Выберите кабинет"
               />
-              <div>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <div style={{color: 'black',width: '20%',padding: '0 10px'}}>
+                <LocalizationProvider dateAdapter={AdapterDayjs} padding='0'>
                   <DemoContainer components={['DatePicker']}>
                     <DatePicker
                       // format={'DD/MM/YYYY'}
                       disablePast={true}
-                      label="Controlled picker"
+                      label="Дата"
                       value={fields.date}
                       onChange={(newValue) => setFields({ ...fields, date: newValue })}
                     />
@@ -109,10 +100,13 @@ function App() {
                 validateMessage="Выберите Интервал"
               />
             </div>
+            <h3 className='comment_title'>Коментарий</h3>
             <textarea value={text} onChange={(event) => { setText(event.target.value) }}></textarea>
 
-            <button onClick={sendForm}>Отправить</button>
-
+            <div>
+            <Button variant="outlined" onClick={sendForm}>Отправить</Button>
+              {/* <button onClick={sendForm}>Отправить</button> */}
+            </div>
             {succes && <div style={{ color: 'green' }}>Переговорная успешно забронирована</div>}
           </FieldsRightContext.Provider >
         </SetFieldsContext.Provider>

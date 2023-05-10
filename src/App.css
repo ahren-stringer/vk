@@ -10,9 +10,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: -10px;
 }
 .select_container{
-  color:black
+  color: black;
+  width: 20%;
+  padding: 0 10px;
+}
+.select_container{
+  padding-top:10px;
 }
 .select_container label{
   color:black
@@ -20,3 +26,17 @@
 .select_container select{
   color:black
 }
+textarea{
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 32px;
+    height: 176px;
+    border-color: #c4c4c4;
+    border-radius: 5px;
+}
+.comment_title{
+  margin-top: 60px;
+}
+/* .css-1xhypcz-MuiStack-root{
+  padding: 0 !important;
+} */
