@@ -1,0 +1,22 @@
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
+.title{
+  margin: 50px auto;
+  /* display: inline; */
+}
+.controls_wrapp{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.select_container{
+  color:black
+}
+.select_container label{
+  color:black
+}
+.select_container select{
+  color:black
+}
